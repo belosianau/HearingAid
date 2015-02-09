@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import java.util.logging.Filter;
 
@@ -19,7 +20,7 @@ public class FilterViewAdapter extends ArrayAdapter<FilterView> {
 
     public Context context;
     public int layoutResourceId;
-    public FilterView data[];
+    public FilterView data[] = null;
 
     public FilterViewAdapter(Context context, int layoutResourceId, FilterView[] data) {
         super(context, layoutResourceId, data);

@@ -5,4 +5,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/home/alan/Projects/HearingAid/app/src/main/res/menu/menu_setting_freq_band.xml -->
+<!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/menu/menu_setting_freq_band.xml -->

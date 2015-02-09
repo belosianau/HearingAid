@@ -1321,7 +1321,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f08002e;
         public static final int action_mode_bar_stub=0x7f08002d;
         public static final int action_mode_close_button=0x7f080020;
-        public static final int action_settings=0x7f080072;
+        public static final int action_settings=0x7f080073;
         public static final int activity_chooser_view_content=0x7f080021;
         public static final int always=0x7f080016;
         public static final int appname=0x7f080042;
@@ -1340,8 +1340,9 @@ containing a value of this type.
         public static final int end=0x7f080014;
         public static final int expand_activities_button=0x7f080022;
         public static final int expanded_menu=0x7f080028;
-        public static final int filter_view_highBand=0x7f080071;
-        public static final int filter_view_lowBand=0x7f08006f;
+        public static final int filter_view_board=0x7f08006e;
+        public static final int filter_view_highBand=0x7f080072;
+        public static final int filter_view_lowBand=0x7f080070;
         public static final int halogo=0x7f080041;
         public static final int home=0x7f080004;
         public static final int homeAsUp=0x7f08000d;
@@ -1399,8 +1400,8 @@ containing a value of this type.
         public static final int setting_freq_band_show_info=0x7f080064;
         public static final int setting_freq_band_show_text_1=0x7f080065;
         public static final int setting_freq_band_show_text_2=0x7f080066;
-        public static final int setting_freq_band_view_text1=0x7f08006e;
-        public static final int setting_freq_band_view_text2=0x7f080070;
+        public static final int setting_freq_band_view_text1=0x7f08006f;
+        public static final int setting_freq_band_view_text2=0x7f080071;
         public static final int setting_freq_shift_button_1=0x7f08006b;
         public static final int setting_freq_shift_button_2=0x7f08006c;
         public static final int setting_freq_shift_show_info=0x7f08006a;
