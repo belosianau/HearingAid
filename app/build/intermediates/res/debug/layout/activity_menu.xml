@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#2d2d2d" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playButtom"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_play_red"
+            android:background="#00000000"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:onClick="playFunction" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/play_activity_menu"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/playButtom"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="2.0" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/setting_activity_menu"
+                android:id="@+id/textView2"
+                android:layout_gravity="bottom"
+                android:textColor="#fff"
+                android:layout_below="@+id/imageButton2"
+                android:layout_centerHorizontal="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton2"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_setting"
+                android:background="#00000000"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:onClick="settingFunction" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/test_activity_menu"
+                android:id="@+id/textView3"
+                android:layout_gravity="bottom"
+                android:textColor="#fff"
+                android:layout_below="@+id/imageButton3"
+                android:layout_centerHorizontal="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton3"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_test"
+                android:background="#00000000"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:onClick="testFunction" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton4"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_info"
+                android:background="#00000000"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="false"
+                android:onClick="infoFunction" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/info_activity_menu"
+                android:id="@+id/textView4"
+                android:layout_gravity="bottom"
+                android:textColor="#fff"
+                android:layout_below="@+id/imageButton4"
+                android:layout_alignLeft="@+id/imageButton4"
+                android:layout_alignStart="@+id/imageButton4" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+<!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/layout/activity_menu.xml -->

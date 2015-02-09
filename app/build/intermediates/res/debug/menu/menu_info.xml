@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ntou.cs.lab505.hearingaid.activities.InfoActivity">
+
+</menu>
+<!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/menu/menu_info.xml -->

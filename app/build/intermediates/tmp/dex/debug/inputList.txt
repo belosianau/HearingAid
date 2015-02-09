@@ -1,0 +1,5 @@
+/home/alan/Projects/Android/HearingAid/app/build/intermediates/classes/debug
+/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-ff30966229e57d80a7634eed5526fc3a5a3bd4b7.jar
+/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-d3df024535372b28dfe4cfad343128dcaabef7bf.jar
+/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/classes-90f2e84ad187847cfe27f283c13e56a71ca4690d.jar
+/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/classes-020bcb07ff955591e72e599c91c497bff9ce57e8.jar
