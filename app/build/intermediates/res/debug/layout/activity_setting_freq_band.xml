@@ -95,6 +95,12 @@
                 android:orientation="vertical"
                 android:id="@+id/setting_freq_band_draw">
 
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/setting_freq_band_listView" />
+
             </LinearLayout>
 
         </ScrollView>
@@ -102,4 +108,4 @@
     </LinearLayout>
 
 </LinearLayout>
-<!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/layout/activity_setting_freq_band.xml -->
+<!-- From: file:/home/alan/Projects/HearingAid/app/src/main/res/layout/activity_setting_freq_band.xml -->

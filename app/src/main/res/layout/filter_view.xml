@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="6"
-                    android:id="@+id/lowBand"
+                    android:id="@+id/filter_view_lowBand"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
@@ -53,15 +53,15 @@
                     android:id="@+id/setting_freq_band_view_text2"
                     android:text="~"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/lowBand"
-                    android:layout_toEndOf="@+id/lowBand" />
+                    android:layout_toRightOf="@+id/filter_view_lowBand"
+                    android:layout_toEndOf="@+id/filter_view_lowBand" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="6"
-                    android:id="@+id/editText"
+                    android:id="@+id/filter_view_highBand"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/setting_freq_band_view_text2"
                     android:layout_toEndOf="@+id/setting_freq_band_view_text2" />

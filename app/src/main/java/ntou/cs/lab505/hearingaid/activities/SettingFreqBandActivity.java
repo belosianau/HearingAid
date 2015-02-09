@@ -30,6 +30,25 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
 
     /**
      *
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //
+
+    }
+
+    @Override
+    public void onPause() {
+        //
+
+
+        super.onPause();
+    }
+
+    /**
+     *
      * @param seekBar
      * @param progress
      * @param fromUser
