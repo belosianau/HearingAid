@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hearing Aid</string>
+    <string name="app_cht_name">通用型聽力輔具系統</string>
+    <string name="app_author">Alan Titor</string>
+    <string name="title_activity_menu">選單</string>
+    <string name="play_activity_menu">Play</string>
+    <string name="setting_activity_menu">Setting</string>
+    <string name="test_activity_menu">Test</string>
+    <string name="info_activity_menu">Information</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_database">DatabaseActivity</string>
+    <string name="title_activity_setting_default_mode">SettingDefaultModeActivity</string>
+    <string name="title_activity_play">PlayActivity</string>
+    <string name="title_activity_setting_freq_shift">SettingFreqShiftActivity</string>
+    <string name="title_activity_setting_freq_band">SettingFreqBandActivity</string>
+    <string name="title_activity_setting_sound_add">SettingSoundAddActivity</string>
+    <string name="setting_show_info">請設定助聽器音訊處理的參數</string>
+    <string name="setting_device">音訊裝置設定</string>
+    <string name="setting_default">預設模式設定</string>
+    <string name="setting_freq_shift">頻率調整設定</string>
+    <string name="setting_freq_slot">頻帶切割設定</string>
+    <string name="setting_sound_add">增益補償設定</string>
+    <string name="setting_ques_1">設定音訊的來源裝置與輸出裝置</string>
+    <string name="setting_ques_2">設定音訊處理模式</string>
+    <string name="setting_ques_3">設定頻率調整的參數</string>
+    <string name="setting_ques_4">設定頻帶切割區域</string>
+    <string name="setting_ques_5">設定增益補償數值</string>
+    <string name="title_activity_setting_device">SettingDeviceActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="setting_device_show_info">請設定音訊輸入與輸出的裝置</string>
+    <string name="setting_device_devin_title">音訊收音來源</string>
+    <string name="setting_device_devout_title">音訊播放位置</string>
+    <string name="setting_device_in_1">內建麥克風</string>
+    <string name="setting_device_in_2">藍牙麥可風</string>
+    <string name="setting_device_in_3">手機內部音訊</string>
+    <string name="setting_device_out_1">內建喇叭</string>
+    <string name="setting_device_out_2">藍牙喇叭</string>
+    <string name="setting_device_out_3">存檔</string>
+    <string name="setting_default_mode_show_info">設定助聽器音訊處理模式</string>
+    <string name="setting_default_mode_list_1">低頻音加強</string>
+    <string name="setting_default_mode_list_2">高頻音加強</string>
+    <string name="setting_default_mode_list_3">混合性重聽加強</string>
+    <string name="setting_default_mode_list_4">自訂</string>
+    <string name="setting_freq_shift_show_info">設定助聽器頻率調整參數</string>
+    <string name="setting_freq_shift_list_1">1/2</string>
+    <string name="setting_freq_shift_list_2">3/4</string>
+    <string name="setting_freq_band_show_info">設定助聽器頻帶切割參數</string>
+    <string name="setting_freq_band_show_text_1">設定頻帶切割數量: </string>
+    <string name="setting_sound_add_show_info">設定助聽器頻帶加強參數</string>
+
+    <string name="hello_world">Hello world!</string>
+
+</resources>

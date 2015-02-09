@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ntou.cs.lab505.hearingaid" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_cht_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activities.LogoActivity"
+            android:label="@string/app_name"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".activities.InfoActivity"
+            android:label="@string/title_activity_info" >
+        </activity>
+        <activity
+            android:name=".activities.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name=".activities.SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name=".activities.PlayActivity"
+            android:label="@string/title_activity_play" >
+        </activity>
+        <activity
+            android:name=".activities.SettingDeviceActivity"
+            android:label="@string/title_activity_setting_device" >
+        </activity>
+        <activity
+            android:name=".activities.DatabaseActivity"
+            android:label="@string/title_activity_database" >
+        </activity>
+        <activity
+            android:name=".activities.SettingDefaultModeActivity"
+            android:label="@string/title_activity_setting_default_mode" >
+        </activity>
+        <activity
+            android:name=".activities.SettingFreqShiftActivity"
+            android:label="@string/title_activity_setting_freq_shift" >
+        </activity>
+        <activity
+            android:name=".activities.SettingFreqBandActivity"
+            android:label="@string/title_activity_setting_freq_band" >
+        </activity>
+        <activity
+            android:name=".activities.SettingSoundAddActivity"
+            android:label="@string/title_activity_setting_sound_add" >
+        </activity>
+    </application>
+
+</manifest>
