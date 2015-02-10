@@ -8,12 +8,12 @@ public class FilterView {
     public int lowBand;
     public int highBand;
 
-    public FilterView() {
-        super();
-    }
-
+    /**
+     *
+     * @param lowBand
+     * @param highBand
+     */
     public FilterView(int lowBand, int highBand) {
-        super();
         this.lowBand = lowBand;
         this.highBand = highBand;
     }

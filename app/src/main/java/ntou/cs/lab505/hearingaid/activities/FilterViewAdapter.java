@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
-
-import java.util.logging.Filter;
 
 import ntou.cs.lab505.hearingaid.R;
 
@@ -18,9 +15,9 @@ import ntou.cs.lab505.hearingaid.R;
  */
 public class FilterViewAdapter extends ArrayAdapter<FilterView> {
 
-    public Context context;
-    public int layoutResourceId;
-    public FilterView data[] = null;
+    Context context;
+    int layoutResourceId;
+    FilterView data[] = null;
 
     public FilterViewAdapter(Context context, int layoutResourceId, FilterView[] data) {
         super(context, layoutResourceId, data);
@@ -31,32 +28,20 @@ public class FilterViewAdapter extends ArrayAdapter<FilterView> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        FilterViewHolder holder = null;
 
-        if (row == null) {
+        if (convertView == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            row = inflater.inflate(layoutResourceId, parent, false);
-
-            holder = new FilterViewHolder();
-            holder.lowBand = (EditText) row.findViewById(R.id.filter_view_lowBand);
-            holder.highBand = (EditText) row.findViewById(R.id.filter_view_highBand);
-
-            row.setTag(holder);
+            convertView = inflater.inflate(layoutResourceId, parent, false);
         } else {
-            holder = (FilterViewHolder) row.getTag();
+            //
         }
 
         FilterView filterView = data[position];
-        holder.lowBand.setText(filterView.lowBand);
-        holder.highBand.setText(filterView.highBand);
+        EditText let = (EditText) convertView.findViewById(R.id.filter_view_lowBand);
+        EditText het = (EditText) convertView.findViewById(R.id.filter_view_highBand);
+        let.setText(String.valueOf(filterView.lowBand));
+        het.setText(String.valueOf(filterView.highBand));
 
-        return row;
+        return convertView;
     }
-
-    static class FilterViewHolder {
-        EditText lowBand;
-        EditText highBand;
-    }
-
 }

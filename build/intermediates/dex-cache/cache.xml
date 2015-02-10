@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/home/alan/Projects/Android/HearingAid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
+        jar="/home/alan/Projects/HearingAid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
-        <dex dex="/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/classes-020bcb07ff955591e72e599c91c497bff9ce57e8.jar" />
+        <dex dex="/home/alan/Projects/HearingAid/app/build/intermediates/pre-dexed/debug/classes-4ef8f01aa65a72bc6381ed4a9505bbf81a49fb63.jar" />
     </item>
     <item
-        jar="/home/alan/Projects/Android/HearingAid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.2/classes.jar"
+        jar="/home/alan/Projects/HearingAid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.2/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54">
-        <dex dex="/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/classes-90f2e84ad187847cfe27f283c13e56a71ca4690d.jar" />
+        <dex dex="/home/alan/Projects/HearingAid/app/build/intermediates/pre-dexed/debug/classes-d25bcc5e950ffc2d48363b0905bb6580a4f8bca6.jar" />
+    </item>
+    <item
+        jar="/home/alan/Projects/HearingAid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/home/alan/Projects/HearingAid/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-bc54ecd8b0dea64a24833c79ccd483c3006ee9b0.jar" />
     </item>
     <item
         jar="/home/alan/Softwares/system/Android/SDK/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
-        <dex dex="/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-ff30966229e57d80a7634eed5526fc3a5a3bd4b7.jar" />
-    </item>
-    <item
-        jar="/home/alan/Projects/Android/HearingAid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
-        <dex dex="/home/alan/Projects/Android/HearingAid/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-d3df024535372b28dfe4cfad343128dcaabef7bf.jar" />
+        <dex dex="/home/alan/Projects/HearingAid/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-ff30966229e57d80a7634eed5526fc3a5a3bd4b7.jar" />
     </item>
 
 </items>

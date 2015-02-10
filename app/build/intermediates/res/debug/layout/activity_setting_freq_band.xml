@@ -84,11 +84,6 @@
             android:background="#9d9d9d"/>
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -103,9 +98,7 @@
 
             </LinearLayout>
 
-        </ScrollView>
-
     </LinearLayout>
 
 </LinearLayout>
-<!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/layout/activity_setting_freq_band.xml -->
+<!-- From: file:/home/alan/Projects/HearingAid/app/src/main/res/layout/activity_setting_freq_band.xml -->

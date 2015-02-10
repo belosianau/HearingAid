@@ -2,8 +2,6 @@ package ntou.cs.lab505.hearingaid.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -60,15 +58,20 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
         // change text
         TextView tv = (TextView) findViewById(R.id.setting_freq_band_show_text_2);
         tv.setText(String.valueOf(progress));
-        //bandNumber = progress;
+        bandNumber = progress;
 
         // clear view
         ListView lv = (ListView) findViewById(R.id.setting_freq_band_listView);
         lv.setAdapter(null);
 
-        // add items
-        View view = (View)getLayoutInflater().inflate(R.layout.filter_view, null);
-        lv.addHeaderView(view);
+        // add list
+        FilterView[] FVData = new FilterView[2];
+
+        FVData[0] = new FilterView(10, 10);
+        FVData[1] = new FilterView(33, 44);
+
+        FilterViewAdapter FVAdapter = new FilterViewAdapter(this, R.layout.filter_view, FVData);
+        lv.setAdapter(FVAdapter);
     }
 
     /**

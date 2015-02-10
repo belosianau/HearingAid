@@ -84,11 +84,6 @@
             android:background="#9d9d9d"/>
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -102,8 +97,6 @@
                     android:id="@+id/setting_freq_band_listView" />
 
             </LinearLayout>
-
-        </ScrollView>
 
     </LinearLayout>
 
