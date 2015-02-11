@@ -1343,6 +1343,8 @@ containing a value of this type.
         public static final int filter_view_board=0x7f08006e;
         public static final int filter_view_highBand=0x7f080072;
         public static final int filter_view_lowBand=0x7f080070;
+        public static final int filter_view_text1=0x7f08006f;
+        public static final int filter_view_text3=0x7f080071;
         public static final int halogo=0x7f080041;
         public static final int home=0x7f080004;
         public static final int homeAsUp=0x7f08000d;
@@ -1394,14 +1396,12 @@ containing a value of this type.
         public static final int setting_device_radioButton4=0x7f080061;
         public static final int setting_device_radioButton5=0x7f080062;
         public static final int setting_device_radioButton6=0x7f080063;
-        public static final int setting_freq_band_draw=0x7f080068;
-        public static final int setting_freq_band_listView=0x7f080069;
+        public static final int setting_freq_band_draw=0x7f080069;
+        public static final int setting_freq_band_scrollView=0x7f080068;
         public static final int setting_freq_band_seekBar=0x7f080067;
         public static final int setting_freq_band_show_info=0x7f080064;
         public static final int setting_freq_band_show_text_1=0x7f080065;
         public static final int setting_freq_band_show_text_2=0x7f080066;
-        public static final int setting_freq_band_view_text1=0x7f08006f;
-        public static final int setting_freq_band_view_text2=0x7f080071;
         public static final int setting_freq_shift_button_1=0x7f08006b;
         public static final int setting_freq_shift_button_2=0x7f08006c;
         public static final int setting_freq_shift_show_info=0x7f08006a;

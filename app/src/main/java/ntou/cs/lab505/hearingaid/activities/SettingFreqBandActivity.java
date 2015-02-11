@@ -1,10 +1,17 @@
 package ntou.cs.lab505.hearingaid.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ntou.cs.lab505.hearingaid.R;
 
@@ -13,6 +20,8 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
     private int bandNumber;
 
     /**
+     * Initial activity.
+     * If it had be set parameters, reload data from database.
      *
      * @param savedInstanceState
      */
@@ -21,15 +30,12 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_freq_band);
 
-        loadData();
-        loadView();
-
         SeekBar sb = (SeekBar) findViewById(R.id.setting_freq_band_seekBar);
         sb.setOnSeekBarChangeListener(this);
     }
 
     /**
-     *
+     * Reload data to view from database
      */
     @Override
     public void onResume() {
@@ -39,6 +45,9 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
 
     }
 
+    /**
+     * save data to database
+     */
     @Override
     public void onPause() {
         //
@@ -59,19 +68,24 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
         TextView tv = (TextView) findViewById(R.id.setting_freq_band_show_text_2);
         tv.setText(String.valueOf(progress));
         bandNumber = progress;
+        LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout border = (LinearLayout) findViewById(R.id.setting_freq_band_draw);
+        ArrayList<View> views = new ArrayList<View>(progress);
 
         // clear view
-        ListView lv = (ListView) findViewById(R.id.setting_freq_band_listView);
-        lv.setAdapter(null);
+        border.removeAllViews();
 
-        // add list
-        FilterView[] FVData = new FilterView[2];
+        // add view
+        for (int count = 0; count < progress; count++) {
+            View view = layoutInflater.inflate(R.layout.filter_view, null);
+            TextView viewLabel = (TextView) view.findViewById(R.id.filter_view_text1);
+            viewLabel.setText(String.valueOf("頻帶" + ( count + 1)));
+            views.add(view);
+        }
 
-        FVData[0] = new FilterView(10, 10);
-        FVData[1] = new FilterView(33, 44);
-
-        FilterViewAdapter FVAdapter = new FilterViewAdapter(this, R.layout.filter_view, FVData);
-        lv.setAdapter(FVAdapter);
+        for (int count = 0; count < views.size(); count++) {
+            border.addView(views.get(count));
+        }
     }
 
     /**

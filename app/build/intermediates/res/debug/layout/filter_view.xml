@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="90dp"
     android:id="@+id/filter_view_board"
-    android:background="#e0e0e0" >
+    android:background="#e0e0e0"
+    android:padding="10dp">
 
 
     <RelativeLayout
@@ -17,11 +18,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="頻帶?"
-            android:id="@+id/setting_freq_band_view_text1"
+            android:text="頻帶"
+            android:id="@+id/filter_view_text1"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
+            android:layout_centerHorizontal="true"
+            android:textColor="#0080ff"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -51,8 +52,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/setting_freq_band_view_text2"
+                    android:id="@+id/filter_view_text3"
                     android:text="~"
+                    android:textColor="#0080ff"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/filter_view_lowBand"
                     android:layout_toEndOf="@+id/filter_view_lowBand" />
@@ -64,8 +66,8 @@
                     android:ems="6"
                     android:id="@+id/filter_view_highBand"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/setting_freq_band_view_text2"
-                    android:layout_toEndOf="@+id/setting_freq_band_view_text2" />
+                    android:layout_toRightOf="@+id/filter_view_text3"
+                    android:layout_toEndOf="@+id/filter_view_text3" />
 
         </RelativeLayout>
 
