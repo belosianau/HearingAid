@@ -71,16 +71,37 @@ public class DoSqlite extends SQLiteOpenHelper {
                 TableContract.T_FSM_STATE + WS + TableContract.SQLITE_TYPE_INTEGER +
                 " )";
         // create sqlite "freq_band_model" table command
-        String SQL_CREATE_TABLE_FBM = "";
+        String SQL_CREATE_TABLE_FBM =
+                "CREATE TABLE " + TableContract.TABLE_FREQ_BAND_MODEL + " (" +
+                        TableContract._ID + WS + TableContract.SQLITE_TYPE_INTEGER + WS + "PRIMARY KEY" + CS +
+                        TableContract.T_FBM_USERID + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                        TableContract.T_FBM_GROUPID + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                        TableContract.T_FBM_LOWBAND + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                        TableContract.T_FBM_HIGHBAND + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                        TableContract.T_SAM_STATE + WS + TableContract.SQLITE_TYPE_INTEGER +
+                        " )";
         // create sqlite "sound_add_model" table command
-        String SQL_CREATE_TABLE_SAM = "";
+        String SQL_CREATE_TABLE_SAM =
+                "CREATE TABLE " + TableContract.TABLE_SOUND_ADD_MODEL + " (" +
+                TableContract._ID + WS + TableContract.SQLITE_TYPE_INTEGER + WS + "PRIMARY KEY" + CS +
+                TableContract.T_SAM_USERID + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_GROUPID + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_L40 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_L60 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_L80 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_R40 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_R60 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_R80 + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_SAM_STATE + WS + TableContract.SQLITE_TYPE_INTEGER +
+                " )";
+
 
         // exclude sqlite commands
         db.execSQL(SQL_CREATE_TABLE_UA);
         db.execSQL(SQL_CREATE_TABLE_S);
         db.execSQL(SQL_CREATE_TABLE_FSM);
-        //db.execSQL(SQL_CREATE_TABLE_FBM);
-        //db.execSQL(SQL_CREATE_TABLE_SAM);
+        db.execSQL(SQL_CREATE_TABLE_FBM);
+        db.execSQL(SQL_CREATE_TABLE_SAM);
 
 
         // initial db table columns
@@ -91,6 +112,7 @@ public class DoSqlite extends SQLiteOpenHelper {
         values.put(TableContract.T_UA_USERPASSWORD, "ha_pw_001");
         values.put(TableContract.T_UA_STATE, 1);
         db.insert(TableContract.TABLE_USER_ACCOUNT, null, values);
+
         // get user ID
         long userId = -1 ;
         Cursor cursor = db.rawQuery("SELECT _ID FROM user_account WHERE userAccount='ha_account_001'", null);
@@ -99,6 +121,7 @@ public class DoSqlite extends SQLiteOpenHelper {
             userId = Integer.parseInt(cursor.getString(0));
         }
         //Log.d("DebugTag", "user ID in \"user_account\": " + userId);
+
         // initial setting table columns
         values = new ContentValues();
         values.put(TableContract.T_S_BELONG, userId);
@@ -114,17 +137,42 @@ public class DoSqlite extends SQLiteOpenHelper {
         values.put(TableContract.T_S_SOUNDADDGID, 0);
         values.put(TableContract.T_S_STATE, 1);
         db.insert(TableContract.TABLE_SETTING, null, values);
+
         // initial freq_band_model table columns
+        /*
+        values = new ContentValues();
+        values.put(TableContract.T_FBM_USERID, userId);
+        values.put(TableContract.T_FBM_GROUPID, 22);  // you can define groupID to any unique number
+        values.put(TableContract.T_FBM_LOWBAND, 0);
+        values.put(TableContract.T_FBM_HIGHBAND, 0);
+        values.put(TableContract.T_FBM_STATE, 1);
+        db.insert("freq_band_model", null, values);
+        */
 
         // initial freq_shift_model table columns
+        /*
         values = new ContentValues();
         values.put(TableContract.T_FSM_USERID, userId);
         values.put(TableContract.T_FSM_GROUPID, 1);
         values.put(TableContract.T_FSM_SHIFTPARA, -1.5);
         values.put(TableContract.T_FSM_STATE, 1);
         db.insert(TableContract.TABLE_FREQ_SHIFT_MODEL, null, values);
-        // initial sound_add_model table columns
+        */
 
+        // initial sound_add_model table columns
+        /*
+        values = new ContentValues();
+        values.put(TableContract.T_SAM_USERID, userId);
+        values.put(TableContract.T_SAM_GROUPID, 22);
+        values.put(TableContract.T_SAM_L40, 0);
+        values.put(TableContract.T_SAM_L60, 0);
+        values.put(TableContract.T_SAM_L80, 0);
+        values.put(TableContract.T_SAM_R40, 0);
+        values.put(TableContract.T_SAM_R60, 0);
+        values.put(TableContract.T_SAM_R80, 0);
+        values.put(TableContract.T_SAM_STATE, 1);
+        db.insert(TableContract.TABLE_SOUND_ADD_MODEL, null, values);
+        */
 
         /*
          *  sqlite SELECT command:
@@ -159,29 +207,4 @@ public class DoSqlite extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
-
-
-
-    // create table
-
-
-    // insert table
-
-
-    // search table
-
-
-    // delete table
-
-
-    // sql command to string
-
-
-    // parameters to sql command
-
-
-    // other relatively methods
-
-
-
 }

@@ -65,6 +65,7 @@ public class DatabaseActivity extends Activity {
                         for (int i = 0; i < cData.getColumnCount(); i++) {
                             data += cData.getString(i) + ", ";
                         }
+                        data += "\n";
                         cData.moveToNext();
                     }
                 }
