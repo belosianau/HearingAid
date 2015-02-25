@@ -210,7 +210,6 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
         for (int count = 0; count < views.size(); count++) {
             border.addView(views.get(count));
         }
-
     }
 
     /**

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="320dp"
+    android:layout_height="wrap_content"
     android:id="@+id/filter_view_board"
     android:background="#e0e0e0" >
 
@@ -19,7 +19,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <TextView
@@ -34,6 +34,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1">
 
 
@@ -46,7 +47,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
 
                 <LinearLayout
@@ -64,13 +65,13 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal" >
 
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_l40"
                             android:max="120"
                             android:progress="60"
@@ -103,12 +104,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal" >
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_l60"
                             android:max="120"
                             android:progress="60"
@@ -140,12 +141,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal" >
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_l80"
                             android:max="120"
                             android:progress="60"
@@ -171,6 +172,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1">
 
 
@@ -183,7 +185,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
 
                 <LinearLayout
@@ -200,12 +202,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_r40"
                             android:max="120"
                             android:progress="60"
@@ -237,12 +239,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_r60"
                             android:max="120"
                             android:progress="60"
@@ -274,12 +276,12 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <SeekBar
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:id="@+id/gain_view_seekBar_r80"
                             android:max="120"
                             android:progress="60"
@@ -304,4 +306,4 @@
 
     </LinearLayout>
 
-</LinearLayout><!-- From: file:/home/alan/Projects/Android/HearingAid/app/src/main/res/layout/gain_view.xml -->
+</LinearLayout><!-- From: file:/home/alan/Projects/HearingAid/app/src/main/res/layout/gain_view.xml -->

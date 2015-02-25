@@ -39,11 +39,28 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="#e0e0e0">
 
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/setting_sound_add_scrollView"
+            android:fillViewport="true" >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/setting_sound_add_draw" >
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
