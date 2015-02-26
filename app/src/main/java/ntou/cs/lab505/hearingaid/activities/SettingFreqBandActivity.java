@@ -22,8 +22,6 @@ import ntou.cs.lab505.hearingaid.sqlite.TableContract;
 
 public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
-    //private int bandNumber;
-
     /**
      * Initial activity.
      * If it had be set parameters, reload data from database.
@@ -132,6 +130,12 @@ public class SettingFreqBandActivity extends Activity implements SeekBar.OnSeekB
         for (int count = 0; count < views.size(); count++) {
             border.addView(views.get(count));
         }
+
+        // delete old sqlite data in 'sound_add_model' table
+        DoSqlite sqliteEntry = new DoSqlite(this.getApplicationContext());
+        SQLiteDatabase db = sqliteEntry.getWritableDatabase();
+        String[] selectionArgs = {"22"};  // self definite number.
+        db.delete(TableContract.TABLE_SOUND_ADD_MODEL, TableContract.T_SAM_GROUPID + " =?", selectionArgs);
     }
 
     /**

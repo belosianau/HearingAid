@@ -115,36 +115,42 @@ public class MenuActivity extends Activity {
      * @return
      */
     private boolean checkPlayState() {
+
+        /**
+         * Algorithm:
+         *
+         * If data number at 'freq_band_model' table equals to data number at 'sound_add_model',
+         * return true.
+         */
+
         boolean state = false;
+        int FBMCount = 0;
+        int SAMCount = 0;
 
-        /*
         DoSqlite sqliteEntry = new DoSqlite(this.getApplicationContext());
-
         SQLiteDatabase db = sqliteEntry.getWritableDatabase();
+        String [] selectArgs = {"22"};
+        String sqlFBMCommand = "SELECT " + TableContract.T_FBM_USERID +
+                               " FROM " + TableContract.TABLE_FREQ_BAND_MODEL +
+                               " WHERE " + TableContract.T_FBM_GROUPID + " = ?";
+        String sqlSAMCommand = "SELECT " + TableContract.T_SAM_USERID +
+                               " FROM " + TableContract.TABLE_SOUND_ADD_MODEL +
+                               " WHERE " + TableContract.T_SAM_GROUPID + " = ?";
 
-        String[] projection = {
-                TableContract._ID,
-                TableContract.T_UA_USERNAME,
-                TableContract.T_UA_USERACCOUNT,
-                TableContract.T_UA_USERPASSWORD,
-                TableContract.T_UA_STATE
-        };
+        Cursor cursor = db.rawQuery(sqlFBMCommand, selectArgs);
+        FBMCount = cursor.getCount();
+        cursor = db.rawQuery(sqlSAMCommand, selectArgs);
+        SAMCount = cursor.getCount();
 
-        Cursor c = db.query(
-          TableContract.TABLE_USER_ACCOUNT,
-          projection,
-          null,
-          null,
-          null,
-          null,
-          null
-        );
+        if (FBMCount == SAMCount) {
+            state = true;
+        } else {
+            state = false;
 
-        c.moveToFirst();
-        String data = c.getString(1);
-
-        Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
-        */
+            // pop up alert message.
+            // please set the parameters.
+            Toast.makeText(getApplicationContext(), "請先設定助聽器參數", Toast.LENGTH_LONG).show();
+        }
 
         return state;
     }
