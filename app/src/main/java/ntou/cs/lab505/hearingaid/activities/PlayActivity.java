@@ -1,12 +1,28 @@
 package ntou.cs.lab505.hearingaid.activities;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import ntou.cs.lab505.hearingaid.R;
+import ntou.cs.lab505.hearingaid.device.DeviceManager;
+import ntou.cs.lab505.hearingaid.device.HeadsetPlugReceiver;
+import ntou.cs.lab505.hearingaid.sound.SoundParameter;
+import ntou.cs.lab505.hearingaid.sqlite.DoSqlite;
+import ntou.cs.lab505.hearingaid.sqlite.TableContract;
 
 public class PlayActivity extends Activity {
+
+    private AudioManager audioManager;
+    private DeviceManager deviceManager;
+    private HeadsetPlugReceiver headsetPlugReceiver;
 
     /**
      *
@@ -16,6 +32,9 @@ public class PlayActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        // load parameters from database
+
     }
 
     /**
@@ -23,6 +42,75 @@ public class PlayActivity extends Activity {
      * @param view
      */
     public void playSoundFunction (View view) {
+
+        DoSqlite sqliteEntry = new DoSqlite(this.getApplicationContext());
+        SQLiteDatabase db = sqliteEntry.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT deviceInType, deviceOutType" +
+                                    " FROM setting WHERE alias='setting_001'", null);
+        cursor.moveToFirst();
+
+        int deviceIn = Integer.parseInt(cursor.getString(cursor.getColumnIndex(TableContract.T_S_DEVICEINTYPE)));
+        int deviceOut = Integer.parseInt(cursor.getString(cursor.getColumnIndex(TableContract.T_S_DEVICEOUTTYPE)));
+        //Toast.makeText(this, deviceIn + "_" + deviceOut, 5).show();
+
+
+        // check device state
+        headsetPlugReceiver = new HeadsetPlugReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+        intentFilter.addAction("android.bluetooth.headset.action.STATE_CHANGED");
+        registerReceiver(headsetPlugReceiver, intentFilter);
+
+
+        audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        deviceManager = new DeviceManager(audioManager);
+        /*
+        if (deviceManager.getDeviceState(0) == true) {
+            Toast.makeText(this, "default OK", 5).show();
+        } else {
+            Toast.makeText(this, "default not OK", 5).show();
+        }
+
+        if (deviceManager.getDeviceState(1) == true) {
+            Toast.makeText(this, "bluetooth OK", 5).show();
+        } else {
+            Toast.makeText(this, "bluetooth not OK", 5).show();
+        }
+        */
+
+
+        // check state
+        if (deviceManager.getDeviceState(deviceIn) == false) {
+            if (deviceIn == 0) {
+                Toast.makeText(getApplicationContext(), "內建麥克風無法使用", Toast.LENGTH_LONG).show();
+            } else if (deviceIn == 1) {
+                Toast.makeText(getApplicationContext(), "藍芽裝置無法使用", Toast.LENGTH_LONG).show();
+            } else {
+                //
+            }
+
+            // ************************************************************************
+            return;  // stop program.  please check device state and system parameters.
+        }
+
+
+        audioManager.setMode(AudioManager.MODE_NORMAL);
+
+        if (deviceIn == 0) {  // use default mic
+            SoundParameter.frequency = 16000;
+        } else if (deviceIn == 1) {  // use bluetooth mic
+            SoundParameter.frequency = 8000;
+        } else {  // waiting!
+            //
+        }
+
+
+        // change activity image
+
+
+
+        // start sound process
 
     }
 

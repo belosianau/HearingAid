@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#2d2d2d" >
+    android:background="#FFFFFF" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -17,12 +17,13 @@
             android:id="@+id/play_sound_bottom"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_play_sound"
+            android:src="@drawable/ic_play_orange"
             android:background="#00000000"
             android:clickable="true"
             android:onClick="playSoundFunction"/>
     </RelativeLayout>
 
+    <!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -93,5 +94,6 @@
         </RelativeLayout>
 
     </LinearLayout>
+    -->
 
 </LinearLayout>
