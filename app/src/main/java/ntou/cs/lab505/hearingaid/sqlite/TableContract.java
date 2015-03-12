@@ -30,6 +30,9 @@ public final class TableContract implements BaseColumns {
     // setting table
     public static final String T_S_BELONG = "belong";
     public static final String T_S_ALIAS = "alias";
+    public static final String T_S_SERVICESTATE = "serviceState";
+    public static final String T_S_HEADSETSTATE = "headsetState";
+    public static final String T_S_BLUETOOTHSTATE = "blueToothState";
     public static final String T_S_DEVICEINTYPE = "deviceInType";
     public static final String T_S_DEVICEOUTTYPE = "deviceOutType";
     public static final String T_S_DEFAULTMODE = "defaultMode";

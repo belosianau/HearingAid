@@ -1,7 +1,12 @@
 package ntou.cs.lab505.hearingaid.device;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.media.AudioManager;
+
+import ntou.cs.lab505.hearingaid.sqlite.DoSqlite;
+import ntou.cs.lab505.hearingaid.sqlite.TableContract;
 
 /**
  * Created by alan on 3/3/15.

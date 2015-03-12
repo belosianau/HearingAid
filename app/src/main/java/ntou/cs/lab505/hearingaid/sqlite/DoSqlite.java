@@ -50,6 +50,9 @@ public class DoSqlite extends SQLiteOpenHelper {
                 TableContract._ID + WS + TableContract.SQLITE_TYPE_INTEGER + WS + "PRIMARY KEY" + CS +
                 TableContract.T_S_BELONG + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
                 TableContract.T_S_ALIAS + WS + TableContract.SQLITE_TYPE_TEXT + CS +
+                TableContract.T_S_SERVICESTATE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_S_HEADSETSTATE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
+                TableContract.T_S_BLUETOOTHSTATE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
                 TableContract.T_S_DEVICEINTYPE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
                 TableContract.T_S_DEVICEOUTTYPE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
                 TableContract.T_S_DEFAULTMODE + WS + TableContract.SQLITE_TYPE_INTEGER + CS +
@@ -126,6 +129,9 @@ public class DoSqlite extends SQLiteOpenHelper {
         values = new ContentValues();
         values.put(TableContract.T_S_BELONG, userId);
         values.put(TableContract.T_S_ALIAS, "setting_001");
+        values.put(TableContract.T_S_SERVICESTATE, 0);
+        values.put(TableContract.T_S_HEADSETSTATE, 0);
+        values.put(TableContract.T_S_BLUETOOTHSTATE, 0);
         values.put(TableContract.T_S_DEVICEINTYPE, 0);
         values.put(TableContract.T_S_DEVICEOUTTYPE, 0);
         values.put(TableContract.T_S_DEFAULTMODE, 0);

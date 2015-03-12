@@ -27,6 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="ntou.cs.lab505.hearingaid.sound.SoundService"
+            android:enabled="true" >
+        </service>
+
         <activity
             android:name="ntou.cs.lab505.hearingaid.activities.MenuActivity"
             android:label="@string/title_activity_menu" >
