@@ -1,55 +1,95 @@
 package ntou.cs.lab505.hearingaid.device;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
+
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
+import android.util.Log;
+
+import ntou.cs.lab505.hearingaid.sound.SoundParameter;
 
 /**
  * Created by alan on 3/12/15.
  */
-public class Microphone extends Service {
+public class Microphone extends Thread {
+
+    private OnMicrophoneListener onMicrophoneListener;
+
+    private int recBufSize;
+    private AudioRecord audioRecord;	//錄音類別
+    private boolean isRecording = false;
+
 
     public Microphone() {
-
+        recBufSize = AudioRecord.getMinBufferSize(SoundParameter.frequency,
+                                                  SoundParameter.channelConfiguration,
+                                                  SoundParameter.audioEncoding);
+        audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                                      SoundParameter.frequency,
+                                      SoundParameter.channelConfiguration,
+                                      SoundParameter.audioEncoding,
+                                      recBufSize);
     }
 
     /**
-     *
-     * @param intent
-     * @return
+     * set listener interface
      */
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    public interface OnMicrophoneListener {
+        public void OnRec(short [] data);
     }
 
-    @Override
-    public boolean onUnbind(Intent intent) {
-        return super.onUnbind(intent);
-    }
-
-    @Override
-    public void onCreate() {
-
-        super.onCreate();
-    }
-
-    @Override
-    public void onDestroy() {
-
-        super.onDestroy();
+    public void setOnMicrophoneListener(OnMicrophoneListener onMicrophoneListener) {
+        this.onMicrophoneListener = onMicrophoneListener;
     }
 
     /**
-     *
-     * @param intent
-     * @param flags
-     * @param startId
-     * @return
+     * control thread state.  start thread.
      */
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-
-        return super.onStartCommand(intent, flags, startId);
+    public void open() {
+        isRecording = true;
+        this.start();
     }
+
+    /**
+     * control thread state.  stop thread.
+     */
+    public void close() {
+        isRecording = false;
+        this.interrupt();
+    }
+
+    /**
+     * thread content.
+     */
+    public void run() {
+        try {
+            Log.d("Microphone", "process start");
+            short [] buffer = new short[recBufSize];
+            audioRecord.startRecording();
+
+            // function loop
+            while (isRecording) {
+                //Log.d("Microphone", "function start");
+                int bufferReadResult = audioRecord.read(buffer, 0, recBufSize);
+
+                // check buffer contains data or not.
+                if (bufferReadResult > 0) {
+                    //Log.d("microphone", "get data " + bufferReadResult);
+                    short[] tempBuf = new short[bufferReadResult];
+                    //Log.d("length", "length: " + tempBuf.length);
+                    System.arraycopy(buffer, 0, tempBuf, 0, bufferReadResult);
+                    // send data back.
+                    //Log.d("microphone", buffer.toString());
+                    onMicrophoneListener.OnRec(tempBuf);
+                } else {
+                    Log.d("Microphone", "record no data");
+                }
+            }
+        } catch (Throwable e) {
+            //
+        }
+
+        Log.d("Microphone", "process stop");
+        audioRecord.release();
+    }
+
 }

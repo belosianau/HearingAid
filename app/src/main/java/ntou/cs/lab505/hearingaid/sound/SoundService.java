@@ -2,12 +2,12 @@ package ntou.cs.lab505.hearingaid.sound;
 
 import android.app.Service;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 
-import ntou.cs.lab505.hearingaid.sqlite.DoSqlite;
+import ntou.cs.lab505.hearingaid.device.Microphone;
+import ntou.cs.lab505.hearingaid.device.Speaker;
 
 /**
  * Created by alan on 3/11/15.
@@ -17,9 +17,11 @@ public class SoundService extends Service{
     private static boolean isPauseByHeadsetUnplug = false;
     private static boolean serviceState = false;
 
+    private Microphone microphone;
+    private Speaker speaker;
 
     public SoundService() {
-
+        //
     }
 
     /**
@@ -37,18 +39,44 @@ public class SoundService extends Service{
         return super.onUnbind(intent);
     }
 
+    /**
+     * initial service
+     * create service object
+     */
     @Override
     public void onCreate() {
-        Log.d("create", "go");
+        // change service state
         serviceState = true;
-        super.onCreate();
-    }
 
-    @Override
-    public void onDestroy() {
-        Log.d("destroy", "go");
-        serviceState = false;
-        super.onDestroy();
+        // crete object
+
+        // create microphone object
+        microphone = new Microphone();
+        // create speaker object
+        if (SoundParameter.frequency == 8000) {
+            speaker = new Speaker();
+        } else {
+            speaker = new Speaker(SoundParameter.frequency);
+        }
+        //
+
+
+
+        // set listener
+
+        // microphone listener
+        microphone.setOnMicrophoneListener(
+                new Microphone.OnMicrophoneListener() {
+                    @Override
+                    public void OnRec(short[] data) {
+                        speaker.AddSignals(data);
+                    }
+                }
+        );
+
+
+
+        super.onCreate();
     }
 
     /**
@@ -60,12 +88,23 @@ public class SoundService extends Service{
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("service", "start: " + startId );
 
-
-
+        // start thread;
+        microphone.open();
+        speaker.open();
 
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    /**
+     * close service
+     */
+    @Override
+    public void onDestroy() {
+        serviceState = false;
+        microphone.close();
+        speaker.close();
+        super.onDestroy();
     }
 
     private static void setServiceState(boolean state) {
@@ -106,3 +145,13 @@ public class SoundService extends Service{
     }
     */
 }
+
+ /*
+  * If you use MediaRecorder (the example, above) it will save compressed audio to a file.
+  * If you use AudioRecord, you can get audio samples directly.
+  * Get the raw data
+  *
+  *
+  *
+  *
+  */

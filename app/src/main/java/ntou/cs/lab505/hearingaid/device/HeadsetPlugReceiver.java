@@ -29,6 +29,8 @@ public class HeadsetPlugReceiver extends BroadcastReceiver {
         //廣播判斷耳機移除需先判斷是否在服務狀態 在服務狀態時需將isPauseByHeadsetUnplug改變 以利接回耳機後啟用
         if (intent.getAction().equals("android.intent.action.HEADSET_PLUG"))  // Broadcast Action: Wired Headset plugged in or unplugged.
         {
+            Log.d("device", "headset change");
+            /*
             //廣播判斷耳機移除需先判斷是否在服務狀態 在服務狀態時需將isPauseByHeadsetUnplug改變 以利接回耳機後啟用
             if (intent.getIntExtra("state", -1) == HeadsetPlugin && SoundService.getServiceState()) {
                 SoundService.setHeadsetUnPlugState(true);  // 做為判斷是否為廣播中斷
@@ -39,9 +41,12 @@ public class HeadsetPlugReceiver extends BroadcastReceiver {
                     context.startService(new Intent("ntou.cs.lab505.hearingaid.sound.SoundService"));
                 }
             }
+            */
         }
         else if (intent.getAction().equals("android.bluetooth.headset.action.STATE_CHANGED"))  	//判斷藍芽狀態是否改變.  // Intent used to broadcast the change in the Audio Connection state of the A2DP profile.
         {
+            Log.d("device", "bluetooth change");
+            /*
             if (intent.getIntExtra(EXTRA_STATE, STATE_DISCONNECTED) == STATE_DISCONNECTED && SoundService.getServiceState()) {  // bluetooth disconnected and service running  .如果還在執行，則停止程式
                 SoundService.setHeadsetUnPlugState(true);	// set headsetunplug state to is unplug .做為判斷是否為廣播中斷
                 context.stopService(new Intent("ntou.cs.lab505.hearingaid.sound.SoundService"));  // stop sound service
@@ -51,6 +56,7 @@ public class HeadsetPlugReceiver extends BroadcastReceiver {
                     context.startService(new Intent("ntou.cs.lab505.hearingaid.sound.SoundService"));
                 }
             }
+            */
         }
         else
         {
