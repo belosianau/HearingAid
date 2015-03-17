@@ -15,7 +15,7 @@ public class JNISoundTouch {
     public native short[] receiveSamples();
 
     static{
-        System.loadLibrary("SoundTouch");
+        System.loadLibrary("soundtouch");
         //System.loadLibrary("app");
     }
 }

@@ -91,6 +91,7 @@ public class FrequencyShift extends Thread {
         try {
             Log.d("FrequencyShift", "process start");
             while (threadState) {
+                long startTime = System.currentTimeMillis();
                 tempBuff = inputDataQueue.take();
 
                 if (tempBuff != null) {
@@ -100,10 +101,12 @@ public class FrequencyShift extends Thread {
                     // receive data from soundtouch library
                     do {
                         tempBuff2 = soundtouch.receiveSamples();
-                        Log.d("FrequencyShift", "data length: " + tempBuff2.length);
+                        //Log.d("FrequencyShift", "data length: " + tempBuff2.length);
                         outputDataQueue.add(tempBuff2);
                     } while (tempBuff2.length > 0);
                 }
+                long stopTime = System.currentTimeMillis();
+                //Log.d("FrequencyShift", "delay: " + (stopTime - startTime));
             }
         } catch (Throwable e) {
             // do nothing
