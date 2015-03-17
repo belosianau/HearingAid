@@ -40,7 +40,7 @@ public class Speaker extends Thread {
     }
 
     /**
-     * constructor
+     * con
      * @param sampleRate
      */
     public Speaker(int sampleRate) {

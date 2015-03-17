@@ -6,19 +6,29 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 import ntou.cs.lab505.hearingaid.device.Microphone;
+import ntou.cs.lab505.hearingaid.device.Microphone2;
 import ntou.cs.lab505.hearingaid.device.Speaker;
+import ntou.cs.lab505.hearingaid.device.Speaker2;
+import ntou.cs.lab505.hearingaid.sound.frequenceshift.FrequencyShift;
 
 /**
  * Created by alan on 3/11/15.
  */
 public class SoundService extends Service{
 
+    // device state parameters
     private static boolean isPauseByHeadsetUnplug = false;
     private static boolean serviceState = false;
-
-    private Microphone microphone;
-    private Speaker speaker;
+    // model data queues
+    private LinkedBlockingQueue<short[]> microphoneQueue = new LinkedBlockingQueue<short[]>();  // queue that save
+    private LinkedBlockingQueue<short[]> frequencyShiftQueue = new LinkedBlockingQueue<short[]>();
+    // model objects
+    private Microphone2 microphone;
+    private FrequencyShift frequencyShift;
+    private Speaker2 speaker;
 
     public SoundService() {
         //
@@ -46,35 +56,24 @@ public class SoundService extends Service{
     @Override
     public void onCreate() {
         // change service state
-        serviceState = true;
-
-        // crete object
-
+        //serviceState = true;  // move to "onStartCommand()".
         // create microphone object
-        microphone = new Microphone();
+        microphone = new Microphone2();  // new microphone class
+        // create frequency shift object
+        frequencyShift = new FrequencyShift();
         // create speaker object
         if (SoundParameter.frequency == 8000) {
-            speaker = new Speaker();
+            speaker = new Speaker2();
         } else {
-            speaker = new Speaker(SoundParameter.frequency);
+            speaker = new Speaker2(SoundParameter.frequency);
         }
-        //
+        // 設定資料傳輸步驟
+        microphone.setOutputQueue(microphoneQueue);
+        frequencyShift.setInputDataQueue(microphoneQueue);
+        frequencyShift.setOutputDataQueue(frequencyShiftQueue);
+        speaker.setInputDataQueue(frequencyShiftQueue);
 
-
-
-        // set listener
-
-        // microphone listener
-        microphone.setOnMicrophoneListener(
-                new Microphone.OnMicrophoneListener() {
-                    @Override
-                    public void OnRec(short[] data) {
-                        speaker.AddSignals(data);
-                    }
-                }
-        );
-
-
+        //frequencyShift.setSoundParameters();
 
         super.onCreate();
     }
@@ -88,10 +87,12 @@ public class SoundService extends Service{
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
+        // change service state
+        serviceState = true;
         // start thread;
-        microphone.open();
-        speaker.open();
+        microphone.threadStart();
+        frequencyShift.threadStart();
+        speaker.threadStart();
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -102,8 +103,9 @@ public class SoundService extends Service{
     @Override
     public void onDestroy() {
         serviceState = false;
-        microphone.close();
-        speaker.close();
+        microphone.threadStop();
+        frequencyShift.threadStop();
+        speaker.threadStop();
         super.onDestroy();
     }
 
