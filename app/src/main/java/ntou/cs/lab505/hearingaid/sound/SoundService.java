@@ -55,8 +55,6 @@ public class SoundService extends Service{
      */
     @Override
     public void onCreate() {
-        // change service state
-        //serviceState = true;  // move to "onStartCommand()".
         // create microphone object
         microphone = new Microphone2();  // new microphone class
         // create frequency shift object
@@ -67,13 +65,15 @@ public class SoundService extends Service{
         } else {
             speaker = new Speaker2(SoundParameter.frequency);
         }
+
         // 設定資料傳輸步驟
         microphone.setOutputQueue(microphoneQueue);
         frequencyShift.setInputDataQueue(microphoneQueue);
         frequencyShift.setOutputDataQueue(frequencyShiftQueue);
         speaker.setInputDataQueue(frequencyShiftQueue);
 
-        //frequencyShift.setSoundParameters();
+        // setting sound frequency shift parameters
+        frequencyShift.setSoundParameters(SoundParameter.frequency, 1, 0, 0, 0);  // int sampleRate, int channels, int pitchSemiTones, float rateChange, float tempoChange
 
         super.onCreate();
     }

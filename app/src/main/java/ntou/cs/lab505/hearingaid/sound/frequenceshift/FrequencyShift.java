@@ -115,3 +115,22 @@ public class FrequencyShift extends Thread {
         Log.d("FrequencyShift", "process stop");
     }
 }
+
+
+/**
+ * How to use NDK:
+ *
+ * (1)
+ *      just include library from exist package.
+ *
+ * (2)
+ *      add ndk compile command at 'build.gradle'
+ *              ndk {
+ *                   moduleName "soundtouch"
+ *               }
+ *      write the correct package path in c++ interface code
+ *              extern "C" JNIEXPORT void JNICALL Java_ntou_cs_lab505_hearingaid_sound_frequenceshift_JNISoundTouch_setSampleRate() {}
+ *
+ *              add extern "C"
+ *              denote JNICALL_MY_PACKAGE_PATH_......() {}
+ */

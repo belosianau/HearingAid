@@ -135,11 +135,20 @@ public class PlayActivity extends Activity {
     }
 
     /**
+     * change button image
+     * @param view
+     */
+    public void settingButtonImage(View view) {
+
+    }
+
+
+    /**
      *
      * @param view
      */
     public void soundAddFunction (View view) {
-
+        //
     }
 
     /**
@@ -147,7 +156,7 @@ public class PlayActivity extends Activity {
      * @param view
      */
     public void soundMinFunction (View view) {
-
+        //
     }
 
     /**
@@ -155,6 +164,6 @@ public class PlayActivity extends Activity {
      * @param view
      */
     public void soundSettingFunction (View view) {
-
+        //
     }
 }
