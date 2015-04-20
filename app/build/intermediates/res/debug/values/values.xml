@@ -163,7 +163,7 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_author">Alan Titor</string>
-    <string name="app_cht_name">通用型聽力輔具系統</string>
+    <string name="app_cht_name">輕中度聽力障礙之聽覺輔助軟體</string>
     <string name="app_name">Hearing Aid</string>
     <string name="hello_world">Hello world!</string>
     <string name="info_activity_menu">Information</string>

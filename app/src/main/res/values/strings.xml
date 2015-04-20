@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Hearing Aid</string>
-    <string name="app_cht_name">通用型聽力輔具系統</string>
+    <string name="app_cht_name">輕中度聽力障礙之聽覺輔助軟體</string>
     <string name="app_author">Alan Titor</string>
     <string name="title_activity_menu">選單</string>
     <string name="play_activity_menu">Play</string>

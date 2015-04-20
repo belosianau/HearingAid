@@ -29,7 +29,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_cht_name"
         android:id="@+id/appname"
-        android:textSize="36dp"
+        android:textSize="26dp"
         android:textColor="#333"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/halogo"

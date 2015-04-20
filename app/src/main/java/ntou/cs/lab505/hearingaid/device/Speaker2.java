@@ -4,9 +4,7 @@ import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.util.Log;
-
 import java.util.concurrent.LinkedBlockingQueue;
-
 import ntou.cs.lab505.hearingaid.sound.SoundParameter;
 
 /**
@@ -88,6 +86,7 @@ public class Speaker2 extends Thread {
         audioTrack.play();
 
 
+        // function loop
         while (threadState) {
             try {
                 // take data from queue

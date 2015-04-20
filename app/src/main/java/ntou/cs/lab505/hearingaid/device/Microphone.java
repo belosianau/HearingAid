@@ -64,6 +64,7 @@ public class Microphone extends Thread {
         try {
             Log.d("Microphone", "process start");
             short [] buffer = new short[recBufSize];
+            int dataSum = 0;
             audioRecord.startRecording();
 
             // function loop
@@ -73,12 +74,23 @@ public class Microphone extends Thread {
 
                 // check buffer contains data or not.
                 if (bufferReadResult > 0) {
-                    //Log.d("microphone", "get data " + bufferReadResult);
+                    // skip empty data
+                    dataSum = 0;
+                    for (int i = 0; i < bufferReadResult; i++) {
+                        dataSum += buffer[i];
+                    }
+                    Log.d("Microphone", "dataSum: " + dataSum);
+                    //if (dataSum < 10000) {
+                        //Log.d("Microphone", "data is empty");
+                    //    continue;
+                    //}
+
+                    Log.d("Microphone", "get data " + bufferReadResult);
                     short[] tempBuf = new short[bufferReadResult];
                     //Log.d("length", "length: " + tempBuf.length);
                     System.arraycopy(buffer, 0, tempBuf, 0, bufferReadResult);
                     // send data back.
-                    //Log.d("microphone", buffer.toString());
+                    //Log.d("Microphone", buffer.toString());
                     onMicrophoneListener.OnRec(tempBuf);
                 } else {
                     Log.d("Microphone", "record no data");

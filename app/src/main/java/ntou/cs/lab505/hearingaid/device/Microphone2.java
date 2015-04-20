@@ -3,10 +3,7 @@ package ntou.cs.lab505.hearingaid.device;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
-
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
-
 import ntou.cs.lab505.hearingaid.sound.SoundParameter;
 
 /**
@@ -62,6 +59,7 @@ public class Microphone2 extends Thread {
         try {
             Log.d("Microphone", "process start");
             short[] microphoneBuff = new short[recordBufSize];
+            long dataSum = 0;
             // start record sound
             audioRecord.startRecording();
 
@@ -69,6 +67,21 @@ public class Microphone2 extends Thread {
             // function loop
             while(threadState) {
                 int buffReadResult = audioRecord.read(microphoneBuff, 0, recordBufSize);
+
+
+                // skip empty data
+                dataSum = 0;
+                for (int i = 0; i < buffReadResult; i++) {
+                    dataSum += microphoneBuff[i];
+                }
+
+                Log.d("Microphone", "dataSum: " + dataSum);
+
+                if (dataSum == 0) {  // I don't how to decide this bound.
+                    Log.d("Microphone", "skip data vector");
+                    continue;
+                }
+
 
                 // check buffer contains data or not.
                 if (buffReadResult > 0) {
